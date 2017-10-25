@@ -8,6 +8,10 @@ SRCBASE = ft_isalpha.s \
 		  ft_isalnum.s \
 		  ft_toupper.s \
 		  ft_tolower.s \
+		  ft_strlen.s \
+		  ft_bzero.s \
+		  ft_strcat.s \
+		  ft_puts.s \
 		  ft_isascii.s
 
 SRCDIR = ./src/
@@ -46,7 +50,7 @@ fclean: clean
 re: fclean all
 
 test: $(NAME)
-	gcc -Wall -Werror -Wextra main.c $(OBJS) -I includes/ -L . -lfts -o test
+	gcc -Wall -Werror -Wextra -g main.c $(OBJS) -I includes/ -L . -lfts -o test
 
 tlibft:
 	nasm -f macho64 libft.s
