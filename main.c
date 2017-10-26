@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmoureu- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/10/26 06:35:52 by dmoureu-          #+#    #+#             */
+/*   Updated: 2017/10/26 06:44:48 by dmoureu-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libfts.h"
 #include <stdio.h>
 #include <unistd.h>
@@ -9,7 +21,7 @@ int main(int ac, char **argv)
 
 	(void)ac;
 	(void)argv;
-
+/*
 	printf("TEST\n");
 	printf("ft_isalpha a :%d\n", ft_isalpha('a'));
 	printf("ft_isalpha @ :%d\n", ft_isalpha('@'));
@@ -47,9 +59,9 @@ int main(int ac, char **argv)
 	printf("ft_tolower(a):%c\n", ft_tolower('a'));
 	printf("ft_tolower(1):%c\n", ft_tolower('1'));
 	printf("ft_tolower(Z):%c\n", ft_tolower('Z'));
-
-	char str[40] = "abcdefghijklmnop";
-	char s2[10] = "abcdef";
+*/
+	char str[40] = "abc";
+	char s2[10] = "def";
 	char *dest;
 
 	dest = malloc(100);
@@ -64,14 +76,14 @@ int main(int ac, char **argv)
 	printf("%d \n", ft_puts(dest));
 	ft_memset(dest,'h' ,3);
 	printf("%d \n", ft_puts(dest));
-	ft_memcpy(dest, s2, 7);
+//	ft_memcpy(&dest[3], s2, 7);
 	printf("%d \n", ft_puts(dest));
 
 
 	printf("%d %d %d %d %d %d %d %d %d\n", dest[0], dest[1], dest[2], dest[3], dest[4], dest[5], dest[6], dest[7], dest[8]);
 	
-	//char *new;
-	//new = ft_strdup(dest);
+	char *new;
+	new = ft_strdup(dest);
 	//printf("%d \n", ft_puts(dest));
 	
 	printf("%d %d %d %d %d %d %d %d %d\n", dest[0], dest[1], dest[2], dest[3], dest[4], dest[5], dest[6], dest[7], dest[8]);

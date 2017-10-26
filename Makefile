@@ -9,6 +9,7 @@ SRCBASE = ft_isalpha.s \
 		  ft_toupper.s \
 		  ft_tolower.s \
 		  ft_strlen.s \
+		  ft_strcpy.s \
 		  ft_bzero.s \
 		  ft_strcat.s \
 		  ft_puts.s \

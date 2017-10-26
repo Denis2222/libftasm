@@ -13,6 +13,7 @@ char	ft_toupper(char c);
 char	ft_tolower(char c);
 size_t	ft_strlen(char *str);
 
+char	*ft_strcpy(char *dst, char *src);
 void	ft_bzero(void *s, size_t n);
 void	*ft_strcat(char *s1, char *s2);
 int		ft_puts(char *s);

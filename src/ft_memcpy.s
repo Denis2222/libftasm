@@ -13,7 +13,7 @@ _ft_memcpy:
 	mov		rax, rsi
 	mov		rcx, rdx
 	cld
-	rep		movsb;Move byte at address DS:(E)SI to address ES:(E)DI
+	rep		movsb;Move byte at address DS:rSI to address rDI
 
 	mov		rax, r15
 	pop		rbp

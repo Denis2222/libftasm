@@ -1,38 +1,25 @@
 section	.text
-global	_ft_strcat
+	global	_ft_strcat
 
-extern	_ft_strlen
-extern	_write
+	extern	_ft_strlen
+	extern	_ft_strcpy
+	extern _ft_strcpy
 
-_ft_strcat:
-	push	rbp
+	_ft_strcat:
 
-	;rdi char *s1
-	;rsi char *s2
+		;rdi	void *s1
+		;rsi	void *s2
 
-	call	_ft_strlen
-	mov		r8, 0  ; y = 0
+		mov	r8, rdi;save
 
-	mov		r9, rdi
-	add		rdi, rax ; r9 = dest[x]
-	boucle:
-		cmp byte [rsi + r8], 0
-			je finis
+		mov	rax, 0
+		mov	rcx, 0
+		not	rcx
+		cld
+		repne scasb;Compare rax with byte at rdi
 
-		mov r10, rdi
-		add r10, r8
-		;TEMPORTAIREEEEEE
-		mov al,  byte [rsi+r8]
-		;TEMPORTAIREEEEEE
-		mov byte [r10 + 0], al
-		inc r8
-	jmp boucle
-
-	finis:
-	mov r11, rdi
-	add r11, r8
-	;TEMPORTAIREEEEEE
-	mov r11, 0
-	mov		rax, r9
-	pop		rbp
-	ret
+		dec	rdi
+		;rsi
+		call	_ft_strcpy
+		mov	rax, r8
+		ret

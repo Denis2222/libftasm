@@ -1,10 +1,14 @@
+section	.data
+txt: db " printf : %d ", 0
+
 section	.text
 global	_ft_strdup
 
 extern	_malloc
 extern	_ft_strlen
-extern	_ft_memcpy
+extern	_ft_strcpy
 extern	_ft_bzero
+extern	_printf
 
 _ft_strdup:
 	push	rbp
@@ -14,21 +18,24 @@ _ft_strdup:
 	call	_ft_strlen
 	;rax = length s1
 	mov r10, rax
-	add rax, 100
 	mov rdi, rax
 	call	_malloc
 
-	mov	r9, rax; newstr
+	mov	rax, r8; newstr
 
-;	mov rdi, r9
-;	sub r10, 10
-;	mov rsi, r10
-;	call _ft_bzero
+	pop rbp
+	ret
+
+	mov rdi, r9
+	mov rsi, r10
+	call _ft_bzero
 ;
 	mov rdi, r9
 	mov rsi, r8
-	mov rdx, 3
-	call	_ft_memcpy
+	push r9
+	push r8
+	call	_ft_strcpy
 
+	mov rax, rdi
 	pop		rbp
 	ret
