@@ -12,6 +12,9 @@ SRCBASE = ft_isalpha.s \
 		  ft_bzero.s \
 		  ft_strcat.s \
 		  ft_puts.s \
+		  ft_memset.s \
+		  ft_memcpy.s \
+		  ft_strdup.s \
 		  ft_isascii.s
 
 SRCDIR = ./src/

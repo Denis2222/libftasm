@@ -1,6 +1,5 @@
 section	.data
 	endstr	db	10, 0
-	lend	equ $ - endstr
 
 section	.text
 global	_ft_puts
@@ -11,23 +10,29 @@ extern	_write
 _ft_puts:
 	push	rbp
 
+	cmp		rdi, 0
+		je	error
+
+	push	rdi
 	mov		rax, 0
 	call	_ft_strlen
+	pop		rdi
 
-	mov		r10,0
+	mov		r12,0
+
 	mov		r8, rdi ;save char *s
 	mov		rdi, 1
 	mov		rsi, r8
 	mov		rdx, rax
 	call	_write; Write char *s
-	;add r10, rax
+	add r12, rax
 	mov		rdi, 1
 	mov		rsi, endstr
-	mov		rdx, lend
+	mov		rdx, 1
 	call	_write; Write "\n"
-	;add		r10, rax
+	add		r12, rax
 
-	mov		rax, r10
+	mov		rax, r12
 	pop		rbp
 ret
 

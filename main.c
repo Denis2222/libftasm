@@ -48,26 +48,33 @@ int main(int ac, char **argv)
 	printf("ft_tolower(1):%c\n", ft_tolower('1'));
 	printf("ft_tolower(Z):%c\n", ft_tolower('Z'));
 
-	char str[40] = "Hello";
-	char s2[10] = " World !";
+	char str[40] = "abcdefghijklmnop";
+	char s2[10] = "abcdef";
 	char *dest;
 
 	dest = malloc(100);
 	bzero(dest, 100);
-//	printf("%ld\n", ft_strlen(str));
-//	printf("%ld\n", strlen(str));
+	printf("%ld\n", ft_strlen(str));
+	printf("%ld\n", strlen(str));
 	
 	
 	dest = strcat(dest, str);
 	dest = ft_strcat(dest, s2);
 
 	printf("%d \n", ft_puts(dest));
+	ft_memset(dest,'h' ,3);
 	printf("%d \n", ft_puts(dest));
+	ft_memcpy(dest, s2, 7);
 	printf("%d \n", ft_puts(dest));
-	printf("%d \n", ft_puts(dest));
-	
-//	ft_bzero(str, 40);
 
-	printf("%d %d %d %d %d %d\n", dest[0], dest[1], dest[2], dest[3], dest[4], dest[5]);
+
+	printf("%d %d %d %d %d %d %d %d %d\n", dest[0], dest[1], dest[2], dest[3], dest[4], dest[5], dest[6], dest[7], dest[8]);
+	
+	//char *new;
+	//new = ft_strdup(dest);
+	//printf("%d \n", ft_puts(dest));
+	
+	printf("%d %d %d %d %d %d %d %d %d\n", dest[0], dest[1], dest[2], dest[3], dest[4], dest[5], dest[6], dest[7], dest[8]);
+
 	return (0);
 }

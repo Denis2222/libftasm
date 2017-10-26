@@ -7,6 +7,9 @@ extern	_write
 _ft_strcat:
 	push	rbp
 
+	;rdi char *s1
+	;rsi char *s2
+
 	call	_ft_strlen
 	mov		r8, 0  ; y = 0
 
