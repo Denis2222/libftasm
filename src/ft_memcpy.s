@@ -8,13 +8,13 @@ _ft_memcpy:
 	;rsi	void *src
 	;rdx	size_t len
 
-	mov		r15, rdi
+	push	rdi
 
 	mov		rax, rsi
 	mov		rcx, rdx
 	cld
-	rep		movsb;Move byte at address DS:rSI to address rDI
+	rep movsb;Move byte at address DS:rSI to address rDI
 
-	mov		rax, r15
+	pop		rax; get old rdi pointer
 	pop		rbp
 	ret

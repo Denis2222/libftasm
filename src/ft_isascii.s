@@ -8,12 +8,12 @@ _ft_isascii:
 	cmp		rdi , 0
 		jl	notascii
 
-ascii:
-	mov		rax, 1
-	pop		rbp
-ret
+	ascii:
+		mov	rax, 1
+		pop	rbp
+	ret
 
-notascii:
-	mov		rax, 0
-	pop		rbp
-ret
+	notascii:
+		mov	rax, 0
+		pop	rbp
+	ret

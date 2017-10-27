@@ -9,13 +9,10 @@ _ft_isalpha:
 	push	rbp
 
 	call	_ft_islower
-	mov		r8, rax
-	call	_ft_isupper
-	mov		r9, rax
-
-	cmp		r8, 1
+	cmp		rax, 1
 		je	isalpha
-	cmp		r9, 1
+	call	_ft_isupper
+	cmp		rax, 1
 		je	isalpha
 
 	notalpha:
@@ -27,4 +24,3 @@ _ft_isalpha:
 	pop		rbp
 	mov		rax, 1
 	ret
-

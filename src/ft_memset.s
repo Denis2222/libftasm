@@ -8,14 +8,13 @@ _ft_memset:
 	;rsi int c
 	;rdx size_t len
 
-	mov r15, rdi
-
+	push rdi
 	mov		rax, rsi
 	mov		rcx, rdx
 	cld
 
-	rep		stosb;Store rax at address rdi  rcx times
+	rep		stosb;Store rax (int c) at address rdi(++)  rcx times
 
-	mov		rax, r15
+	pop rax;old rdi -> rax
 	pop rbp
 	ret

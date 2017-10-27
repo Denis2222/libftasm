@@ -8,12 +8,12 @@ _ft_isprint:
 	cmp		rdi , ' '
 		jl	notprint
 
-print:
-	mov		rax, 1
-	pop		rbp
-ret
+	print:
+		mov	rax, 1
+		pop	rbp
+	ret
 
-notprint:
-	mov		rax, 0
-	pop		rbp
-ret
+	notprint:
+		mov	rax, 0
+		pop	rbp
+	ret

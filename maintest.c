@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jguyet <jguyet@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/25 04:28:53 by jguyet            #+#    #+#             */
-/*   Updated: 2017/10/27 05:09:55 by dmoureu-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <libfts.h>
 
 #include <string.h>
@@ -145,17 +133,23 @@ static int		test_strcat(void)
 {
 	int		reussi = 0;
 	char src[50], dest[50], src2[50], dest2[50];
-
-	strcpy(src,  "This is source");
-	strcpy(dest, "This is destination");
-	strcpy(src2,  "This is source");
-	strcpy(dest2, "This is destination");
-	if (!strcmp(strcat(dest, src), strcat(dest2, src2)))
+	bzero(src, 50);
+	bzero(dest, 50);
+	bzero(src2, 50);
+	bzero(dest2, 50);
+	strcat(src,  "This is source");
+	strcat(dest, "This is destination");
+	ft_strcat(src2,  "This is source");
+	ft_strcat(dest2, "This is destination");
+	if (!strcmp(strcat(dest, src), ft_strcat(dest2, src2)))
   {
 		reussi++;
   }
 	else
+	{
+		printf("str :%s\nft_str: %s\n", dest, dest2);
 		txt_error_info("!ft_strcmp(strncat(dest, src), strncat(dest2, src2))");
+	}
 	strcpy(src,  "Ththth");
 	strcpy(dest, "Ththth");
 	strcpy(src2,  "Ththth");
@@ -178,7 +172,10 @@ static int		test_strlen(void)
 	if (ft_strlen("ppppefefefgeggdvsvs") == strlen("ppppefefefgeggdvsvs"))
 		reussi++;
 	else
+	{
+	  printf("ft_:%ld    %ld\n", ft_strlen("ppppefefefgeggdvsvs") , strlen("ppppefefefgeggdvsvs"));
 		txt_error_info("ft_strlen(\"ppppefefefgeggdvsvs\") == strlen(\"ppppefefefgeggdvsvs\")");
+	}
 	if (ft_strlen("ppppefe\0fefgeggdvsvs") == strlen("ppppefe\0fefgeggdvsvs"))
 		reussi++;
 	else

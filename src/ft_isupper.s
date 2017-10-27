@@ -8,12 +8,12 @@ _ft_isupper:
 	cmp		rdi , 'A'
 		jl	notup
 
-up:
-	mov		rax, 1
-	pop		rbp
-ret
+	up:
+		mov	rax, 1
+		pop	rbp
+	ret
 
-notup:
-	mov		rax, 0
-	pop		rbp
-ret
+	notup:
+		mov	rax, 0
+		pop	rbp
+	ret

@@ -1,26 +1,20 @@
-section .data
-
-MAXRCX: db 0xffffffffffffffff
-
 section	.text
 global	_ft_strlen
-
 
 _ft_strlen:
 	push	rbp
 
 	;rdi  char *str
 
-	mov		rcx, MAXRCX
-	mov		r15, rcx
-	mov		eax, 0
+	mov		rcx, -1
+	mov		rax, 0
 	cld
 	repnz scasb
 	;Pour chaque char de rdi, compare avec eax et decremente le compteur rcx
 	;Si un char == eax(0) la suite
-	sub		r15, rcx
-	dec		r15
-	mov		rax, r15
+	not		rcx
+	dec		rcx
+	mov		rax, rcx
 	pop		rbp
 	ret
 

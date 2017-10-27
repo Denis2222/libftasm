@@ -8,12 +8,12 @@ _ft_islower:
 	cmp		rdi , 'a'
 		jl	notlow
 
-low:
-	mov		rax, 1
-	pop		rbp
-ret
+	low:
+		mov	rax, 1
+		pop	rbp
+	ret
 
-notlow:
-	mov		rax, 0
-	pop		rbp
-ret
+	notlow:
+		mov	rax, 0
+		pop	rbp
+	ret

@@ -57,8 +57,8 @@ fclean: clean
 re: fclean all
 
 test: $(NAME)
-	gcc maintest.c $(OBJS) -I includes/ -L . -lfts -o maintest
-	gcc maincat.c $(OBJS) -I includes/ -L . -lfts -o maincat
+	gcc maintest.c -I includes/ -L . -lfts -o maintest
+	gcc maincat.c  -I includes/ -L . -lfts -o maincat
 
 
 testlaunch:
