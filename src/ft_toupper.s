@@ -1,10 +1,12 @@
 section	.text
 extern	_ft_islower
+extern	_ft_isupper
 
 global	_ft_toupper
 
 _ft_toupper:
 	push	rbp
+
 	call	_ft_islower
 	mov		r8, rax
 

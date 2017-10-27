@@ -3,7 +3,7 @@ global	_ft_bzero
 
 _ft_bzero:
 	push	rbp
-	push	r8
+;	push	r8
 
 	mov		r8, 0
 
@@ -16,6 +16,6 @@ _ft_bzero:
 
 	end:
 		mov		rax, 0
-		pop	r8
+;		pop	r8
 		pop rbp
 	ret

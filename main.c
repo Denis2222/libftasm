@@ -6,7 +6,7 @@
 /*   By: dmoureu- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 06:35:52 by dmoureu-          #+#    #+#             */
-/*   Updated: 2017/10/26 06:44:48 by dmoureu-         ###   ########.fr       */
+/*   Updated: 2017/10/27 02:29:55 by dmoureu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,33 +60,28 @@ int main(int ac, char **argv)
 	printf("ft_tolower(1):%c\n", ft_tolower('1'));
 	printf("ft_tolower(Z):%c\n", ft_tolower('Z'));
 */
-	char str[40] = "abc";
-	char s2[10] = "def";
+	char str[80] = "Hello World oiq wfoihqwofqw foiqwhi fhoqiwhf oiqwhoihf oiqwhio fhqowih foiq !";
+	char s2[30] = " Yololo Wololo !";
 	char *dest;
 
-	dest = malloc(100);
-	bzero(dest, 100);
-	printf("%ld\n", ft_strlen(str));
-	printf("%ld\n", strlen(str));
+	dest = ft_strnew(100);
+
+printf("%p", dest);
+return (0);
+	printf("ft_strlen :%ld\n", ft_strlen(str));
+	printf("   strlen :%ld\n", strlen(str));
 	
-	
-	dest = strcat(dest, str);
+	dest = ft_strcat(dest, str);
 	dest = ft_strcat(dest, s2);
 
-	printf("%d \n", ft_puts(dest));
-	ft_memset(dest,'h' ,3);
-	printf("%d \n", ft_puts(dest));
-//	ft_memcpy(&dest[3], s2, 7);
-	printf("%d \n", ft_puts(dest));
 
-
-	printf("%d %d %d %d %d %d %d %d %d\n", dest[0], dest[1], dest[2], dest[3], dest[4], dest[5], dest[6], dest[7], dest[8]);
-	
+	printf("%ld", ft_strlen(dest));
 	char *new;
 	new = ft_strdup(dest);
-	//printf("%d \n", ft_puts(dest));
-	
-	printf("%d %d %d %d %d %d %d %d %d\n", dest[0], dest[1], dest[2], dest[3], dest[4], dest[5], dest[6], dest[7], dest[8]);
+	ft_puts(new);
+	printf("%ld", ft_strlen(new));
+
+//	ft_cat(0);
 
 	return (0);
 }

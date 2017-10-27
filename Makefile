@@ -10,12 +10,16 @@ SRCBASE = ft_isalpha.s \
 		  ft_tolower.s \
 		  ft_strlen.s \
 		  ft_strcpy.s \
+		  ft_strncpy.s \
 		  ft_bzero.s \
 		  ft_strcat.s \
 		  ft_puts.s \
 		  ft_memset.s \
 		  ft_memcpy.s \
+		  ft_debug.s \
 		  ft_strdup.s \
+		  ft_strnew.s \
+		  ft_cat.s \
 		  ft_isascii.s
 
 SRCDIR = ./src/
@@ -28,8 +32,7 @@ OBJS = $(addprefix $(OBJDIR), $(SRCBASE:.s=.o))
 
 NASM = nasm -f macho64
 
-all: $(NAME) test
-	./test
+all: $(NAME)
 
 $(NAME): $(OBJDIR) $(OBJS)
 	ar rc $(NAME) $(OBJS)
@@ -54,7 +57,8 @@ fclean: clean
 re: fclean all
 
 test: $(NAME)
-	gcc -Wall -Werror -Wextra -g main.c $(OBJS) -I includes/ -L . -lfts -o test
+	gcc -g maintest.c $(OBJS) -I includes/ -L . -lfts -o test
+	./test
 
 tlibft:
 	nasm -f macho64 libft.s

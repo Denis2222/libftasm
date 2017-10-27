@@ -3,6 +3,8 @@ section .text
 	extern _ft_strlen
 
 _ft_strcpy:
+	
+	push rbp
 
 	;rdi	void *dst
 	;rsi	void *src
@@ -10,10 +12,15 @@ _ft_strcpy:
 	mov		rdx, rdi
 	mov		rdi, rsi
 	call	_ft_strlen
-	
-	mov		rcx, rax
-	mov		rdi, rdx
-	rep		movsb
-	mov		byte[rdi], 0
-	mov		rax, rdx
+
+	;rdx = dst
+	;rdi = src
+	;rax = length(src)
+
+	mov		rcx, rax ; compteur = length(src)
+	mov		rdi, rdx	; rdi = dst
+	rep		movsb ; put rsi in rdi ( src on len)
+	mov		byte[rdi], 0 ;last char \0
+	mov		rax, rdx ; retour de dest
+	pop rbp
 	ret
