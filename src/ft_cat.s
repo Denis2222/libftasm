@@ -1,4 +1,8 @@
-%define bufsize	10
+%define	bufsize	10
+%define	SYSCALL(nb)		0x2000000 | nb
+%define	STDOUT			1
+%define	WRITE			4
+%define	READ			3
 
 section .bss
 	buf: resb bufsize; Reserve bufsize octets
@@ -19,14 +23,17 @@ boucle:
 	push	rdi;fd
 	push	rdx;bufsize
 	push	rsi;buf
-	
-	call	_read
+
+	mov		rax, SYSCALL(READ)
+	syscall
+
 	cmp		rax, 0 ;if read 0 finish
 		jle	finish
 
-	mov		rdi, 1;fd 1 for write
+	mov		rdi, STDOUT;fd 1 for write
 	mov		rdx, rax
-	call	_write
+	mov		rax, SYSCALL(WRITE)
+	syscall
 
 	pop		rsi
 	pop		rdx
