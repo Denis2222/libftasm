@@ -10,6 +10,8 @@ _ft_strnew:
 
 	inc		rdi
 	call	_malloc
+	cmp		rax, 0
+		je	error; malloc fail
 
 	push	rax
 
@@ -19,4 +21,8 @@ _ft_strnew:
 
 	pop		rax
 	pop		rbp
+	ret
+
+error:
+	mov		rax, 0
 	ret

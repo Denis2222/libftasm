@@ -47,7 +47,7 @@ $(OBJDIR)%.o : $(SRCDIR)%.s | $(OBJDIR)
 	$(NASM) $< -o $@
 
 
-clean:
+clean: testclean
 	rm -rf $(OBJDIR)
 
 fclean: clean
@@ -57,13 +57,15 @@ fclean: clean
 re: fclean all
 
 test: $(NAME)
-	gcc -g maintest.c $(OBJS) -I includes/ -L . -lfts -o test
-	./test
+	gcc maintest.c $(OBJS) -I includes/ -L . -lfts -o maintest
+	gcc maincat.c $(OBJS) -I includes/ -L . -lfts -o maincat
 
-tlibft:
-	nasm -f macho64 libft.s
-	ld libft.o -macosx_version_min 10.10 -lSystem -o libftasm
 
-tsyscall:
-	nasm -f macho64 syscall.s
-	ld syscall.o -macosx_version_min 10.10 -lSystem -o syscall
+testlaunch:
+	./maintest
+	./maincat
+
+testclean:
+	rm -f ./maintest
+	rm -f ./maincat
+

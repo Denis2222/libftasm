@@ -1,6 +1,6 @@
 section	.data
 txt: db "TEST", 0
-printftxt: db "rsi:%d rdx:%d rdi:%d r8:%d r9:%d X:%d Y:%d"
+printftxt: db 'DEBUG'
 
 
 section	.text

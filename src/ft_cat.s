@@ -4,9 +4,10 @@ section .bss
 	buf: resb bufsize; Reserve bufsize octets
 
 section .text
-	global _ft_cat
-	extern _read
-	extern _write
+	global	_ft_cat
+	extern	_read
+	extern	_write
+	extern	_ft_debug
 
 _ft_cat:
 	;rdi = fd
