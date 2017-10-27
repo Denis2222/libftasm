@@ -6,7 +6,7 @@
 /*   By: jguyet <jguyet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 04:28:53 by jguyet            #+#    #+#             */
-/*   Updated: 2017/10/27 02:48:46 by dmoureu-         ###   ########.fr       */
+/*   Updated: 2017/10/27 05:09:55 by dmoureu-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -389,9 +389,6 @@ void test_ft_strdup(char *arg)
 
 int		main(int argc, char **argv)
 {
-
-	char *test = ft_strnew(10);
-	puts(ft_memcpy(test, "123", 3));
 	if (argc == 1)
 		Start();
 	else if (argc == 2 && strcmp(argv[1], "cat") == 0)
