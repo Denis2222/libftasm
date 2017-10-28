@@ -8,10 +8,10 @@ _ft_strncpy:
 	;rsi	void *src
 	;rdx	size_t len
 	
-	mov		rcx, rdx
-	mov		rdi, rdx
-	rep		movsb
-	mov		byte[rdi], 0
-	mov		rax, rdx
+	mov		rcx, rdx ; compteur = length(src)
+	rep		movsb ; put rsi in rdi ( src on len)
+	mov		byte[rdi], 0 ;last char \0
+	mov		rax, rdx ; retour de dest
 	pop rbp
 	ret
+

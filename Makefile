@@ -18,7 +18,6 @@ SRCBASE = ft_isalpha.s \
 		  ft_memcpy.s \
 		  ft_debug.s \
 		  ft_strdup.s \
-		  ft_strnew.s \
 		  ft_cat.s \
 		  ft_isascii.s
 
@@ -59,7 +58,7 @@ re: fclean all
 test: $(NAME)
 	gcc maintest.c -I includes/ -L . -lfts -o maintest
 	gcc maincat.c  -I includes/ -L . -lfts -o maincat
-
+	./maintest
 
 testlaunch:
 	./maintest

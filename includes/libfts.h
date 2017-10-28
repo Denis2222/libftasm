@@ -22,8 +22,5 @@ void	*ft_memset(void *b, int c, size_t len);
 void	*ft_memcpy(void *dst, void *src, size_t n);
 char	*ft_strdup(char *s1);
 void	ft_cat(int fd);
-char	*ft_strnew(int length);
-
-void	ft_debug(void);
 
 #endif

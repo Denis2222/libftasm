@@ -40,13 +40,7 @@ static int		test_memset(void)
 		reussi++;
 	else
 		txt_error_info("memcmp(ss1, \"---------\", 9)");
-		//puts("\nla ->");
-		//puts(s2);
-		//puts("\n");
 	ss2 = ft_memset(s2, '-', 5);
-	//puts("\nla2 ->");
-	//puts(s2);
-	//puts("\n");
 	erreur = memcmp(ss2, "-----.rgrgr...r", 14);
 	if (!erreur)
 		reussi++;
@@ -368,7 +362,7 @@ static void		Start(void)
 		txt_good("ft_strcat...", nbr, 2);
 	else
 		txt_error("ft_strcat...Total Error !");
-
+//	test_ft_strnew();
 }
 
 void test_cat()
@@ -383,6 +377,7 @@ void test_ft_strdup(char *arg)
 {
 		puts(ft_strdup(arg));
 }
+
 
 int		main(int argc, char **argv)
 {
