@@ -16,7 +16,6 @@ SRCBASE = ft_isalpha.s \
 		  ft_puts.s \
 		  ft_memset.s \
 		  ft_memcpy.s \
-		  ft_debug.s \
 		  ft_strdup.s \
 		  ft_cat.s \
 		  ft_isascii.s

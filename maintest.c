@@ -293,10 +293,37 @@ static void		txt_error(char *s)
   printf("%s%s%s\n", C_ERROR, s, C_NO);
 }
 
+int test_ft_strdup2()
+{
+	char *str;
+	char *dup;
+	int success;
+	int i;
+
+	i = 1;
+	success = 0;
+
+	while (i < 20000)
+	{
+		str = malloc(i);
+		ft_bzero(str, i);
+		ft_memset(str, 'h', i-1);
+		dup = ft_strdup(str);
+
+		if (memcmp(dup, str, i) == 0)
+		  success++;
+		free(str);
+		free(dup);
+		i = i + 2;
+	}
+	return success;
+}
+
 static void		Start(void)
 {
 	int nbr = 0;
-	printf("------Started Test Libfts.a------\n");
+	ft_puts("------Started Test Libfts.a------");
+	ft_puts("ft_puts.....  \033[32m[2/2] success\033[00m");
 	/*******memset*******/
 	if ((nbr = test_memset()))
 		txt_good("ft_memset...", nbr, 2);
@@ -304,9 +331,9 @@ static void		Start(void)
 		txt_error("ft_memset...Total Error !");
 	/*******bzero*******/
 	if ((nbr = test_bzero()))
-		txt_good("ft_bzero...", nbr, 2);
+		txt_good("ft_bzero....", nbr, 2);
 	else
-		txt_error("ft_bzero...Total Error !");
+		txt_error("ft_bzero....Total Error !");
 		/*******memcpy*******/
 	if ((nbr = test_memcpy()))
 		txt_good("ft_memcpy...", nbr, 2);
@@ -324,19 +351,19 @@ static void		Start(void)
 		txt_error("ft_strdup...Total Error !");
 		/*******isalpha*******/
 	if ((nbr = test_isalpha()))
-		txt_good("ft_isalpha...", nbr, 300);
+		txt_good("ft_isalpha..", nbr, 300);
 	else
-		txt_error("ft_isalpha...Total Error !");
+		txt_error("ft_isalpha..Total Error !");
 		/*******isdigit*******/
 	if ((nbr = test_isdigit()))
-		txt_good("ft_isdigit...", nbr, 300);
+		txt_good("ft_isdigit..", nbr, 300);
 	else
-		txt_error("ft_isdigit...Total Error !");
+		txt_error("ft_isdigit..Total Error !");
 		/*******isalnum*******/
 	if ((nbr = test_isalnum()))
-		txt_good("ft_isalnum...", nbr, 300);
+		txt_good("ft_isalnum..", nbr, 300);
 	else
-		txt_error("ft_isalnum...Total Error !");
+		txt_error("ft_isalnum..Total Error !");
 		/*******isascii******/
 	if ((nbr = test_isascii()))
 		txt_good("ft_isascii..", nbr, 300);
@@ -362,7 +389,14 @@ static void		Start(void)
 		txt_good("ft_strcat...", nbr, 2);
 	else
 		txt_error("ft_strcat...Total Error !");
-//	test_ft_strnew();
+
+	if ((nbr = test_ft_strdup2()))
+	  txt_good("ft_strdup...", nbr, 10000);
+	else
+	  txt_error("ft_strdup...Total Error !");
+	
+	
+	//	test_ft_strnew();
 }
 
 void test_cat()
@@ -375,7 +409,7 @@ void test_cat()
 
 void test_ft_strdup(char *arg)
 {
-		puts(ft_strdup(arg));
+		ft_puts(ft_strdup(arg));
 }
 
 

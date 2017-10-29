@@ -26,7 +26,7 @@ _ft_puts:
 
 	push	rax; save result write
 	mov		rdi, 1
-	mov		rsi, endstr
+	lea		rsi, [rel endstr]
 	mov		rdx, 1
 	call	_write; Write "\n"
 	pop		rax;get first write result
